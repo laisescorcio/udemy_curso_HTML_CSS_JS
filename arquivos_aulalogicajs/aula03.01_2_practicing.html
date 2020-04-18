@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <script>
+      var i = 1;
+
+      while (i <= 100) {
+        /* é multiplo de 3, 
+        OU que nao seja multipla de 2 e nem de 5, OU SEJA
+        SENDO MULTIPLO DE 3 NÃO TEM PROBLEMA 
+        QUE SEJA MULTIPLO DE 2 E DE 5 */
+        if (i % 3 === 0 || (!(i % 2 === 0) && !(i % 5 === 0))) {
+          document.write(i + "<br>");
+        }
+
+        /* Substituindo o primeiro && por ||,
+        SÓ aparece os que SÃO multiplus de 3 
+        mas que TAMBÉM NAO SAO multiplos 2 e nem de 5
+        if (i % 3 === 0 && !(i % 2 === 0) && !(i % 5 === 0)) {
+          document.write(i + "<br>");
+        } 
+        */
+
+        i++;
+      }
+    </script>
+  </body>
+</html>

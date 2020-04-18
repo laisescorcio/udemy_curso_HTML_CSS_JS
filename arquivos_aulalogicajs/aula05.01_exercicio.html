@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <button onclick="mostrarAreaAlert()">
+      mostrar área do retângulo Alert
+    </button>
+    <button onclick="mostrarAreaOutput()">
+      mostrar área do retângulo
+    </button>
+
+    <div id="output"></div>
+
+    <script>
+      function mostrarAreaAlert() {
+        // Pedir altura do retangulo para usuário
+        var altura = parseFloat(prompt("Digite a altura do retângulo"));
+
+        // Pedir largura do retângulo para usuario
+        var largura = parseFloat(prompt("Digite a largura do retângulo"));
+
+        // TRY CATCH: sobre execeção, que nao deveria ter ocorrido mas ocorreu
+        //  tenta executar o calculo
+        try {
+          // Pedir para a função calcular retornar o valor para mostrar na tela
+          var area = calcularArea(altura, largura);
+        } catch (e) {
+          // se der algum erro, executa o catch
+          area = e;
+        }
+        alert("A área do retangulo é: " + area);
+      }
+
+      function mostrarAreaOutput() {
+        // Pedir altura do retangulo para usuário
+        var altura = parseFloat(prompt("Digite a altura do retângulo"));
+
+        // Pedir largura do retângulo para usuario
+        var largura = parseFloat(prompt("Digite a largura do retângulo"));
+
+        try {
+          var area = calcularArea(altura, largura);
+        } catch (e) {
+          area = e;
+        }
+        document.querySelector("#output").innerHTML =
+          "A área do retangulo é: " + area;
+      }
+
+      function calcularArea(a, l) {
+        // Se for indefinido, não é valido
+
+        if (l === undefined || a === undefined) {
+          // mensagem de erro aparece só no console
+
+          throw new Error("calcularArea precisa receber dois números");
+        }
+        if (isNaN(l) || isNaN(a)) {
+          // mensagem de erro aparece só no console
+
+          throw new Error("apenas números");
+        }
+        return a * l;
+      }
+    </script>
+  </body>
+</html>

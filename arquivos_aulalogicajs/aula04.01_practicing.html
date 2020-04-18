@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <!-- 1) CRIA O(S) BOTÃO(ÕES) -->
+
+    <button onclick="mostrarTabuada()">Criar Tabuada</button>
+    <button onclick="limparTabuada()">Limpar Tabuada</button>
+
+    <!-- 2) CRIA O OUTPUT PARA RECEBER A MENSAGEM -->
+    <div id="output"></div>
+
+    <script>
+      // 3) MOSTRA A FUNÇÃO DE UM BOTÃO
+      function mostrarTabuada() {
+        // 4) NO CASO, FAZER A CONTA DA TABUADA
+        var numero = parseFloat(prompt("Digite um numero"));
+
+        // 5) ACRESCENTA O BOTÃO PARA LIMPAR
+
+        limparTabuada();
+
+        var i = 1;
+
+        while (i <= 1000) {
+          mensagem += numero + " x " + i + " = " + numero * i + "<br>";
+          i++;
+
+          // 6) MANDA RESPONDER PARA O OUTPUT, E DIZ QUE A MENSAGEM GERADA É A CONTA
+          output.innerHTML = mensagem;
+        }
+
+        // 7) LIMPA TABUADA CHAMANDO O OUTPUT COM MENSAGEM VAZIA
+        function limparTabuada() {
+          mensagem = " ";
+          output.innerHTML = mensagem;
+        }
+      }
+    </script>
+  </body>
+</html>

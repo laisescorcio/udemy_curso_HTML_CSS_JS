@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <div id="output">kkkkkk</div>
+
+    <script>
+      // Acessar o HTML através do document
+      var output = document.querySelector("#output");
+
+      // cria variável e sua concatenações
+      var mensagem = " ";
+      for (var i = 0; i < 1001; i++) {
+        // mensagem = mensagem + "i: " + i + "<br>"
+        mensagem += "i: " + i + "<br>";
+      }
+      // e de uma vez passa para o HTML pelo innerHTML
+      output.innerHTML = mensagem;
+    </script>
+  </body>
+</html>

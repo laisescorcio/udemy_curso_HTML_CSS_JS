@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- saved from url=(0266)https://mp4-a.udemycdn.com/2018-07-22_18-38-34-18b96bb6f7ca4ce2224f75d9522ace5a/original.html?zzB2ZOMVr2IGFsk7Gk8oqDOxMlpFuFPuOlqQJJvd0bI0VvzVVaHQoLzPAxMv29-iwr99s4BqcnmoRj9nNfvn_xrLFm3TtI5CkoVaWAQq2QB0XS5KQfl4RsayV3dNvA5uvy9DZhOepBJTIGi2BtF_oABi8lS6_qKW9XAzDr3Jkb1G -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Logica de Programação Javascript</title>
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <script>
+      alert("Quer apostar na sua sorte hoje?");
+
+      //fazer jogador1 digitar um numero
+      var player1 = parseInt(prompt("Jogador 1: Escolha o número 0 ou 1"));
+
+      //fazer jogador2 digitar outro numero
+      var player2 = parseInt(prompt("Jogador 2: Escolha o número 0 ou 1"));
+
+      //se forem iguais, mostrar mensagem 'empate'
+      if (player1 === player2) {
+        alert("EMPATARAM! Escolham outros números!");
+      }
+
+      //sortear um numero entre 0 e 1
+      var sorteio = parseInt(Math.random() * 2);
+
+      // se o numero sorteado for 0, ganha quem escolher o numero MENOR
+      console.log("sorteio igual a: ", sorteio);
+      if (sorteio === 0) {
+        if (player1 < player2) {
+          alert("PARABÉNS, JOGADOR1! Você venceu o jogo!");
+        } else {
+          alert("PARABÉNS, JOGADOR2! Você venceu o jogo!");
+        }
+
+        //se o numero sorteado for 1, ganha quem escolher o numero MAIOR
+      } else {
+        if (player1 > player2) {
+          alert("PARABÉNS, JOGADOR1! Você venceu o jogo!");
+        } else {
+          alert("PARABÉNS, JOGADOR2! Você venceu o jogo!");
+        }
+      }
+    </script>
+  </body>
+</html>

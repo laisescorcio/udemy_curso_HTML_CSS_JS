@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('*')">x</button>
+    <button onclick="iniciarCalculo('/')">/</button>
+
+    <div id="output"></div>
+
+    <script>
+      /**
+       * um programa que recebe um valor n1, OK
+       * permite o usuario selecionar o operador matematico
+       * recebe o valor n2 e retorna o calcula
+       */
+
+      //  Define, transforma e pede para o usuario um valor
+      var n1 = parseFloat(prompt("Digite um numero"));
+      // Define o valor de n1 no output do HTML
+      document.querySelector("#output").innerHTML = n1;
+      // Escreve o n1 no HTML
+      escreve(n1);
+
+      // Inicia o Calculo em relação ao símbolo que foi apertado em um dos botões
+      function iniciarCalculo(simbolo) {
+        var n1 = parseFloat(document.querySelector("#output").innerHTML);
+        // Define, transforma e pede para o usuário o outro valor
+        var n2 = parseFloat(prompt("digite outro numero"));
+        // Define como msg o cálculo entre o operador matematico, o valor 1 e 2 escolhido pelo usuario
+        var msg = calcular(simbolo, n1, n2);
+        // Escreve o valor do calculo
+        escreve(msg);
+      }
+
+      // Escreve no output do HTML
+      function escreve(mensagem) {
+        var output = document.querySelector("#output");
+        // Define que haverá uma mensagem no output
+        output.innerHTML = mensagem;
+      }
+      function calcular(simbolo, n1, n2) {
+        // Define uma variável nula para ela ser o calculo dos operadores matematicos
+        var resultado = null;
+        switch (simbolo) {
+          // procura o próximo passo dependendo da operação matemática selecionada pelo usuário
+          case "+":
+            resultado = n1 + n2;
+            // encerra a conta
+            break;
+          case "-":
+            resultado = n1 - n2;
+            break;
+          case "*":
+            resultado = n1 * n2;
+            break;
+          case "/":
+            resultado = n1 / n2;
+            break;
+        }
+        // retorna o resultado
+        return resultado;
+      }
+    </script>
+  </body>
+</html>

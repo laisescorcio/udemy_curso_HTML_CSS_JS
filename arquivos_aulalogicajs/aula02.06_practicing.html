@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <script>
+      var nota1 = parseFloat(prompt("Digite a primeira nota"));
+      var nota2 = parseFloat(prompt("Digite a segunda nota"));
+
+      var media = (nota1 + nota2) / 2;
+
+      if (media >= 5) {
+        if (media === 9 || media === 10) {
+          alert("Parabéns! Você receberá certificado de honra!");
+        } else {
+          alert("Parabéns! Você foi aprovado!");
+        }
+      } else {
+        alert("Sinto muito, mas você terá que estudar mais.");
+      }
+    </script>
+  </body>
+</html>

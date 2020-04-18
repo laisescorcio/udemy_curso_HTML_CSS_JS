@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lógica de Programação Javascript</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Lógica de programação com Javascript</h1>
+
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('*')">x</button>
+    <button onclick="iniciarCalculo('/')">/</button>
+
+    <div id="output"></div>
+
+    <script>
+      // Pede para o usuário definir um numero
+      var n2 = prompt("Digite um numero");
+      // transforma para float
+      n2 = parseFloat(n2);
+
+      escreve(n2);
+
+      // Essa função olhará qual o valor que ja ta no output, guardar numa variavel
+      // vai pedir pedir pro usuario outro numero
+      // vai mandar para a função calcular e retornar o valor
+      // e entao vai pedir para escreve o resultado
+      function iniciarCalculo(simbolo) {
+        // a variavel n1 vai receber o texto que ta dentro do elemento que tem o ID output
+        // o textContent nao aceita tags HTML, texto puro, ao contrario do innerHTML
+        var n1 = document.querySelector("#output").textContent;
+        // definir como float, para nao ser STRING e não concatenar
+        n1 = parseFloat(n1);
+
+        // resultado do prompt
+        var n2 = prompt("digite outro numero");
+        n2 = parseFloat(n2);
+
+        // TRY CATCH: sobre execeção, que nao deveria ter ocorrido mas ocorreu
+        //  tenta executar o calculo
+        try {
+          // Pedir para a função calcular retornar o valor para mostrar na tela
+          var msg = calcular(simbolo, n1, n2);
+        } catch (e) {
+          // se der algum erro, executa o catch
+          alert(e);
+          return;
+        }
+        escreve(msg);
+      }
+
+      // Seleciona o output
+      // Mensagem vai ser passada por parametro sempre que eu quiser escrever alguma coisa
+      function escreve(mensagem) {
+        var output = document.querySelector("#output");
+        // coloca o numero definido como mensagem anteriormente dentro do output
+        output.innerHTML = mensagem;
+      }
+
+      // Define função para calcular, recebendo os parâmetros (simbolo), n1 e n2
+      function calcular(simbolo, n1, n2) {
+        // Se o simbolo for DIFERENTE desses todos, não é valido
+        if (
+          simbolo !== "+" &&
+          simbolo !== "-" &&
+          simbolo !== "*" &&
+          simbolo !== "/"
+        ) {
+          // mensagem de erro aparece só no console
+          throw new Error("Digite um simbolo válido");
+        }
+        // Se n1 ou n2 nao puder ser convertido pra numero, define um alert
+        if (isNaN(n1) || isNaN(n2)) {
+          // mensagem de erro aparece só no console
+          throw new Error("Chama passando somente numeros");
+          // depois do alert de erro, mostra 0
+        }
+        // Define uma variavel nula para ela ser IGUAL apenas ao calculo
+        var numeroCalculado = null;
+
+        // Compara e define o próximo passo de acordo
+        // com o operador matematico selecionado pelo usuario
+        switch (simbolo) {
+          case "+":
+            numeroCalculado = n1 + n2;
+            break;
+          case "-":
+            numeroCalculado = n1 - n2;
+            break;
+          case "*":
+            numeroCalculado = n1 * n2;
+            break;
+          case "/":
+            numeroCalculado = n1 / n2;
+            break;
+        }
+
+        return numeroCalculado;
+      }
+    </script>
+  </body>
+</html>
